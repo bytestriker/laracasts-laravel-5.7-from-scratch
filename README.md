@@ -4,4 +4,4 @@ This is the code companion of the Laracasts' course *Laravel 5.7 from scratch* (
 
 I'm using this as my own follow-up to this course I'm doing right now, so it's a work in progress.
 
-I'm organizing each lesson in branches, this is, at the end of the lesson I create a branch for that lesson, then merge onto master. Thus, if you want to check that lesson's code, pull it's branch. If you want to go through the lesson again, pull the branch of the previous lesson.
+I'm organizing each lesson in branches, this is, at the beginning of the lesson I create a branch for that lesson and updated at the end of the lesson, then merged into master. Thus, if you want to check that lesson's code, pull it's branch. If you want to go through the lesson again, pull the branch of the previous lesson.
