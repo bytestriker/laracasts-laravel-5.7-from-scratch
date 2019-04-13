@@ -12,7 +12,28 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  $tasks = [
+    'Go to the store',
+    'Go to the market',
+    'Go to work',
+    'Go to the concert'
+  ];
+
+    return view('welcome', [
+      'tasks' => $tasks,
+      'foo' => 'foobar',
+      //'foo2' => request('title'), //use with url?title=laracasts
+      //'foo3' => '<script>alert("foobar")</script>', //use {!! !!} to avoid scaping
+    ]);
+
+    //return view('welcome')->withTasks($tasks)->withFoo('foobar'); //this is equivalent to the previous return staetment
+
+    /*
+    this is also possible:
+      return view('welcome')->with(
+      'tasks' => $tasks,
+      );
+    */
 });
 
 Route::get('/about', function () {
