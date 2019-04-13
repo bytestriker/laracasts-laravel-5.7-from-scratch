@@ -5,9 +5,9 @@
   {{-- <h1>My {{ $foo2 }} Website</h1>  <!-- use with url?title=Laracasts --> --}}
   {{-- <h1>My {!! $foo3 !!} Website</h1>  <!-- use {!! !!} to avoid scaping --> --}}
 
-  <ul>
+  {{-- <ul>
     @foreach ($tasks as $task)
       <li>{{ $task }}</li>
     @endforeach
-  </ul>
+  </ul> --}}
 @endsection
