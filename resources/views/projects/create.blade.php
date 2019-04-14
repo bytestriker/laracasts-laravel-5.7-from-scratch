@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Create a New Project</h1>
+@extends('layout')
+
+@section('content')
+    <h1 class="title">Create a New Project</h1>
 
     <form action="/projects" method="post">
       {{ csrf_field() }}
@@ -20,6 +16,4 @@
       </div>
     </form>
 
-
-  </body>
-</html>
+@endsection
