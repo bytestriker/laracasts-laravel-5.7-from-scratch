@@ -3,7 +3,7 @@
 @section('content')
   <h1 class="title">Edit project</h1>
 
-  <form class="" action="/projects/{{ $project->id }}" method="post" style="margin-bottom: 1em;">
+  <form class="" action="/projects/{{ $project->id }}" method="post">
     {{ method_field('PATCH') }}
     {{ csrf_field() }}
     <div class="field">
@@ -23,19 +23,6 @@
     <div class="field">
       <div class="control">
         <button type="submit" class="button is-link">Update project</button>
-      </div>
-    </div>
-  </form>
-
-  <form action="/projects/{{ $project->id }}" method="post">
-    @method('DELETE')
-    @csrf
-    {{-- which is equivalent to this: --}}
-    {{-- {{ method_field('DELETE') }}
-    {{ csrf_field() }} --}}
-    <div class="field">
-      <div class="control">
-        <button type="submit" class="button">Delete project</button>
       </div>
     </div>
   </form>
