@@ -14,4 +14,9 @@ class Project extends Model
     protected $guarded = [];
 
     // but dont do this: Project::create(request()->all());
+
+    public function tasks()
+    {
+      return $this->hasMany(Task::class);
+    }
 }
