@@ -45,8 +45,8 @@ class ProjectsController extends Controller
     public function store()
     {
       $attributes = request()->validate([
-        'title' => ['required', 'min:3'],
-        'description' => 'required|min:3'
+        'title' => ['required', 'min:3'], //validation rules can be members of an array
+        'description' => 'required|min:3' //or simply separated by |
       ]);
 
       Project::create($attributes);
