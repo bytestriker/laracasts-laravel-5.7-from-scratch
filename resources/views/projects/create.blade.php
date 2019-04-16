@@ -26,7 +26,7 @@
 
     </form>
 
-  @include('erros')
+  @include('errors')
 
 
 @endsection
