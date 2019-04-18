@@ -13,7 +13,12 @@ class Project extends Model
 
     protected $guarded = [];
 
-    // but dont do this: Project::create(request()->all());
+    // but don't do this: Project::create(request()->all());
+
+    public function owner()
+    {
+      return $this->belongsTo(User::class);
+    }
 
     public function tasks()
     {
