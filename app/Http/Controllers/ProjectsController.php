@@ -7,6 +7,12 @@ use App\Project;
 
 class ProjectsController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth');
+      // $this->middleware('auth')->only(['store', 'update']);
+      // $this->middleware('auth')->escept(['show']);
+    }
     public function index()
     {
       $projects = Project::all();
@@ -48,6 +54,8 @@ class ProjectsController extends Controller
         'title' => ['required', 'min:3'], //validation rules can be members of an array
         'description' => 'required|min:3' //or simply separated by |
       ]);
+
+      $attributes['owner_id'] => auth()->id();
 
       Project::create($attributes);
 
