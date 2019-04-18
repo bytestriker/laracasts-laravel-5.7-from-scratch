@@ -55,7 +55,7 @@ class ProjectsController extends Controller
         'description' => 'required|min:3' //or simply separated by |
       ]);
 
-      $attributes['owner_id'] => auth()->id();
+      $attributes['owner_id'] = auth()->id();
 
       Project::create($attributes);
 
