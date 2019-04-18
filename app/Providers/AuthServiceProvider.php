@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
 
         $gate->before(function ($user) {
           // return $user->isAdmin(); // would need to create this method isAdmin()
-          return $user->id == 2; // this is and admin id.
+          // return $user->id == 2; // this is and admin id.
         });
     }
 }
