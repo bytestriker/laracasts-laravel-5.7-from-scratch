@@ -16,8 +16,9 @@ class ProjectsController extends Controller
     }
     public function index()
     {
-      $projects = Project::where('owner_id', auth()->id())->get();
-      return view('projects.index', ['projects' => $projects]);
+      return view('projects.index', [
+        'projects' => auth()->user()->projects
+      ]);
     }
 
     public function create()
@@ -51,7 +52,7 @@ class ProjectsController extends Controller
     {
       $this->authorize('update', $project);
 
-      $project->update(request(['title', 'description']));
+      $project->update($this->validateProject());
 
       return redirect('/projects');
 
@@ -67,10 +68,7 @@ class ProjectsController extends Controller
 
     public function store()
     {
-      $attributes = request()->validate([
-        'title' => ['required', 'min:3'], //validation rules can be members of an array
-        'description' => 'required|min:3' //or simply separated by |
-      ]);
+      $attributes = $this->validateProject();
 
       $attributes['owner_id'] = auth()->id();
 
@@ -82,5 +80,13 @@ class ProjectsController extends Controller
 
       return redirect('/projects');
 
+    }
+
+    public function validateProject()
+    {
+      return request()->validate([
+        'title' => ['required', 'min:3'], //validation rules can be members of an array
+        'description' => 'required|min:3' //or simply separated by |
+      ]);
     }
 }
