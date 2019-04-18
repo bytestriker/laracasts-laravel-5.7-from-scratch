@@ -16,6 +16,8 @@ Route::get('/', function () {
 });
 
 Route::resource('projects', 'ProjectsController');
+// Authorization option to the route collection with middleware and policies
+// Route::resource('projects', 'ProjectsController')->middleware('can:update,project');
 
 Route::post('/projects/{project}/tasks', 'ProjectTasksController@store');
 Route::patch('/tasks/{task}', 'ProjectTasksController@update');
