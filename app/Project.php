@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ProjectCreated;
+use App\Events\ProjectCreated;
 
 class Project extends Model
 {
@@ -15,18 +15,16 @@ class Project extends Model
 
     protected $guarded = [];
 
+    // Another option to trigger the ProjectCreated event:
+    // ProjectCreated event triggered by the eloquent created event it self
+    // Don't need the triggering event in the ProjectsController@store
+    // (see comment there)
+    // 
+    // protected $dispatchesEvents = [
+    //   'created' => ProjectCreated::class,
+    // ];
+
     // but don't do this: Project::create(request()->all());
-
-    public static function boot()
-    {
-      parent::boot();
-
-      static::created(function ($project) {
-        Mail::to($project->owner->email)->send(
-          new ProjectCreated($project)
-        );
-      });
-    }
 
     public function owner()
     {
