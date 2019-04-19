@@ -84,6 +84,9 @@ class ProjectsController extends Controller
       // Send notification
       auth()->user()->notify(new ProjectCreatedNotification($project));
 
+      // Send a flash message
+      flash('Your project has been created');
+
       return redirect('/projects');
 
     }
