@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css" />
+    <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css')}}">
     <style>
       .is-complete{
         text-decoration: line-through;
@@ -15,6 +15,11 @@
     <div class="container">
       @yield('content')
     </div>
-
+    <div id="app">
+      <example-component></example-component>
+    </div>
+    <script src="{{ mix('/js/manifest.js')}}"></script>
+    <script src="{{ mix('/js/vendor.js')}}"></script>
+    <script src="{{ mix('/js/app.js')}}"></script>
   </body>
 </html>
