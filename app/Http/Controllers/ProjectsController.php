@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Project;
 use App\Events\ProjectCreated;
+use App\Notifications\ProjectCreatedNotification;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -79,6 +80,9 @@ class ProjectsController extends Controller
       // comment this if you want to trigger this evente with the eloquent
       // created event itself in App/Project.php (see comment there)
       event( new ProjectCreated($project));
+
+      // Send notification
+      auth()->user()->notify(new ProjectCreatedNotification($project));
 
       return redirect('/projects');
 
