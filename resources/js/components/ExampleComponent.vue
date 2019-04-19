@@ -26,5 +26,5 @@
 </script>
 
 <style type="text/css">
-  .card { background: pink;}
+  .card { background: pink; }
 </style>
